@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   }
 })
 async function sendverificationemail(user,token) {
-  const url = `http://192.168.29.174:5173/api/user/verify/${token}`
+  const url = `http://localhost:5173/api/user/verify/${token}`
 
   await transporter.sendMail({
     from:`"RoomAI" <roomai8769@gmail.com>`,
@@ -26,14 +26,14 @@ async function sendverificationemail(user,token) {
   })
 }
 async function sendpasswordresetemail(user, token) {
-  const url = `http://192.168.29.174:5173/reset-password?token=${token}`
+  const url = `http:///localhost:5173/reset-password?token=${token}`
 
   await transporter.sendMail({
     from:`"RoomAI" <roomai8769@gmail.com>`,
     to: user.email,
     subject:"Password Reset",
     html: `<p>Hey there ${user.username}, We received a request to reset your password. Click the button below to create a new one:</p>
-            <a href="${url}">Reset My Password</a>
+            <a href="${url}">Click here</a>
            <p>For your security, this link will expire in [15 minutes].</p>
            <p>If you didn’t request a password reset, you can safely ignore this email.</p>
            <p>Thank you for using our services.</p>`

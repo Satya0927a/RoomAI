@@ -1,0 +1,175 @@
+{
+  "REMOVER":[
+    "You are an interior rendering assistant. Given this photo, remove all furnitures, decor, and objects.",
+    "Keep the walls, floor, ceiling,windows, doors, lighting, and shadows exactly as in the original image.",
+    "Maintain the original camera angle, perspective, and proportions without altering geometry.",
+    "Do not add new objects or modify textures—only reconstruct empty, realistic surfaces where items were removed."
+  ],
+  "REMOVER2":[
+    "You are an interior rendering assistant." ,
+    "Take this photo and generate the exact same room but empty.",
+    "Keep the architecture unchanged: same walls, floor, ceiling, corners, windows, doors, lighting, textures, shadows, and perspective." ,
+    "Only remove furniture, décor, and movable objects by realistically filling in the surfaces behind them.",
+    "Do not redesign or alter the room—just reveal what is hidden so the room looks naturally empty."
+  ],
+  "WALL_UP":[
+    "Walls Design Section:",
+    "Update the walls with finishes, colors, or subtle textures that best complement the selected furniture, palette, and style.",
+    "Prioritize harmony and mood: walls should enhance the room’s overall atmosphere without overpowering the design.",
+    "Where appropriate, introduce tasteful elements such as accent walls, light paneling, or refined textures to add depth and elegance.",
+    "AI has creative freedom to decide the most suitable wall treatment, provided it feels realistic, balanced, and aligned with the room’s proportions."
+  ],
+  "FLOOR_UP":[
+    "Floor design Section:",
+    "Adjust the flooring material and tone (wood, stone, or tile) to complement the furniture palette and overall design, while keeping a modern, cohesive vibe.",
+    "AI has full creative freedom to select the most suitable Floor materials that elevate the design and match the selected style.",
+    "Ensure floor changes feel natural within the space, maintaining balance, proportion, and realism."
+  ],
+  "RULE_NC":[
+    "Rules:",
+    "8. Ensure furniture and wall changes scale naturally in the room, aligned with walls and windows.",
+    "9. Keep the original ceiling, windows, doors, shadows, camera angle, and perspective unchanged"
+  ],
+  "RULE_WC":[
+    "Rules:",
+    "8. Ensure furniture and wall changes scale naturally in the room, aligned with walls and windows.",
+    "9. Keep the original ceiling, windows, doors, shadows, camera angle, and perspective unchanged"
+  ],
+  "LIVING_1" :[
+  "Furnish and decorate the empty living room into a minimal luxury modern living space. Use a palette of soft beige, cream, champagne gold, walnut brown, and marble white. The design should feel elegant, bright, and airy..",
+
+  "1. Add a L-shaped sofa in cream fabric with slim walnut legs, placed against the main wall for balance, accessorized with soft beige and champagne-gold accent cushions. The sofa must be appropiately sized according to the room original size",
+  "2. Place a walnut + marble low-profile coffee table in front of the sofa, styled with a marble tray, a design book, and a small decorative object.",
+  "3. Add a slim walnut TV console opposite the sofa, with minimal décor items such as a ceramic vase and one modern sculpture.",
+  "4. Include two slim golden floor lamps with soft warm lighting on either side of the sofa to create balance and mood.",
+  "5. Add a indoor plant in a cream ceramic planter in the corner near natural light to bring freshness.",
+  "6. Hang multiple small abstract art piece on the wall matching the vibe"
+
+  ],
+  "LIVING_2":[
+    "Furnish and decorate the empty living room into a Japandi-inspired calm and cozy space. Use a palette of warm oak wood, matte black, soft white, sage green, and natural linen. The design should feel serene, balanced, and timeless.",
+
+    "1. Add a low-profile oakwood sofa with off-white linen cushions, placed against the main wall, accessorized with sage green and natural beige throw pillows.",
+    "2. Place a rectangular oak + matte black coffee table in front of the sofa, styled with a ceramic teapot set, a linen-textured book, and a small bonsai.",
+    "3. Add a minimalist oak TV console opposite the sofa with clean lines, styled with a single stone sculpture and a ceramic bowl.",
+    "4. Include two slim matte-black floor lamps with soft diffused light on either side of the sofa to create balance and mood.",
+    "5.Add a tall indoor plant (like a rubber plant) in a textured off-white planter in the corner to bring nature indoors.",
+    "6. Hang multiple small abstract art piece on the wall matching the vibe"
+
+  ],
+  "LIVING_3":[
+    "Furnish and decorate the empty living room into a luxurious modern lounge. Use a palette of matte black, soft beige, brushed brass, deep walnut, and warm white. The design should feel sophisticated, minimal, yet bold.",
+    "Furniture & Décor to Add",
+    "1. Add a L-shaped beige velvet sectional sofa with clean sharp edges, positioned toward the center, accessorized with matte black and brass-accent pillows.",
+    "2. Place a rectangular smoked glass + brass coffee table in front of the sofa, styled with a single sculptural décor piece and a designer book.",
+    "3. Add a pair of modern accent chairs in matte black leather with thin gold legs facing the sofa for symmetry.",
+    "4. Place a large abstract monochrome rug under the sofa and table to anchor the seating area.",
+    "5. Hang a statement linear chandelier in brushed brass above the seating area with warm white LED glow.",
+    "6. Add recessed ceiling lights along the room perimeter for sleek ambient lighting.",
+    "7. Include a tall geometric floor lamp in matte black and a slim console table in walnut + brass behind the sofa with minimal décor (two glass vases).",
+    "8.change the lighting to match a real estate showcase: bright, evenly distributed, and warm for a spacious, inviting look"
+
+  ],
+  "LIVING_4":[
+    "Furnish and decorate this empty living room into a calming sanctuary. The design should feel warm, natural, and serene with a minimalist, Japandi-inspired style.",
+    "Furniture & Décor to Add",
+    "1. Add a light-beige linen sofa with soft rounded edges and neutral throw pillows, the sofa should take good amount of space in the room",
+    "2. Place a light oak wood coffee table with simple lines, decorated with a ceramic vase holding fresh branches.",
+    "3. Add a soft, oversized woven rug in warm cream tones to anchor the seating area.",
+    "4. Empty spaces of the walls are Lined with subtle, small floating wood shelves holding a few carefully chosen pottery pieces and book, and some abstract arts to match the vibe",
+    "5. Position a comfortable accent chair with a curved silhouette in light grey fabric near the sofa.",
+    "6. Use a tall indoor plant (like a fiddle leaf fig or bamboo palm) in a natural clay planter by the window for freshness.",
+    "7. Replace the chandelier with a woven rattan pendant lamp for a soft, diffused glow.",
+    "9. improve the lighting of the room,  like a setup for realestate marketing"
+
+  ],
+  "LIVING_5":[
+    "Furnish and decorate the empty living room into a calming sanctuary. The design should feel warm, natural, and serene with a classic vintage-inspired style.",
+
+    "1. Add a, tufted velvet sofa in muted sage or dusty rose with soft rounded edges and neutral throw pillows.",
+    "2. Place a dark oak wood coffee table with ornate carved legs, decorated with a ceramic vase holding fresh branches.",
+    "3. Add a soft, patterned area rug in warm cream and muted earthy tones to anchor the seating area.",
+    "4. Empty spaces of the walls are lined with subtle,small antique-style floating wood shelves holding a few carefully chosen pottery pieces and books.",
+    "5. Position a comfortable accent chair with a curved wooden frame and upholstered seat in light grey or muted pastel near the sofa.",
+    "6. Use a tall indoor plant (like a fiddle leaf fig or bamboo palm) in a decorative vintage-style planter by the window for freshness.",
+    "7. Replace the chandelier with a classic brass or aged metal pendant lamp for a soft, diffused glow.",
+    "8. Hang multiple small abstract art piece on the wall matching the vibe"
+
+  ],
+  "BED_1":[
+    "Using the provided image of this bedroom, Furnish and decorate this bedroom into a cohesive, stylish modern bedroom. Use a palette of charcoal grey, black, deep navy, gold/brass, and marble white. The design should be realistic, bold, and professional with sleek modern finishes.everything else in the image exactly the same, preserving the original style, lighting, and composition.",
+    "Furniture & Décor to Add:",
+    "1.Add a modern low-profile platform bed with a luxurious upholstered headboard in deep charcoal fabric, layered with a quilted off-white bedcover, two deep navy cushions, and a draped knitted throw in warm beige.",
+    "2.Place two matching warm walnut wood bedside tables with clean modern lines, each topped with a slim brass lamp and a minimal decorative object.",
+    "3.Include a low floating console in warm walnut with a marble top, placed opposite the bed, styled with a gold-toned sculpture and a black ceramic vase.",
+    "Empty spaces of the walls are lined with modern abstract artwork in black, navy, and gold tones",
+    "5.Place two indoor plants in matte black ceramic planters to bring balance and freshness.",
+    "6.Add a soft, textured area rug in marble white and grey under the bed, extending beyond the sides for layering.",
+    "7.Style the room with subtle metallic décor (small brass tray, modern clock, geometric sculpture) to enhance sophistication."
+  ],
+  "BED_2":[
+    "Using the provided image of this bedroom, Furnish and decorate this bedroom into a cohesive, modern industrial bedroom. Use a palette of walnut wood, matte black, soft grey, and warm beige. The design should be realistic, bold, and sophisticated.everything else in the image exactly the same, preserving the original style, lighting, and composition.",
+    "Furniture & Décor to Add:",
+    "1.Add a low-profile walnut wood bed frame with chevron-pattern headboard, centered against the back wall. Style with neutral grey bedding, a folded beige throw at the foot, and two large white pillows layered with two smaller grey cushions.",
+    "2.Add two built-in side tables aligned with the bed edges. Place one black metal lamp with a simple shade on each side, keeping symmetry.",
+    "3.Add a modern upholstered bench or ottoman at the foot of the bed, centered, with upholstery in light beige fabric for contrast.",
+    "4.Keep the black shelving unit on the right side; style it minimally with a few neatly arranged books and two matte black sculptural objects.",
+    "5.Place one medium indoor plant in a white ceramic pot on the left side near the mirror for freshness and balance.",
+    "6.Empty spaces of the walls are lined with abstract black-and-white framed artwork"
+
+  ],
+  "BED_3":[
+    
+    "Using the provided image of this bedroom, Furnish and decorate this bedroom into a Japandi-inspired calm modern bedroom. Use a palette of muted grey, warm wood, off-white, soft sage, and matte black. The design should be realistic, simple, organic, and cozy. p everything else in the image exactly the same, preserving the original style, lighting, and composition.",
+    "Furniture & Décor to Add:",
+    "1. Add a low wooden platform bed with a fabric headboard, neutral pillows, and a soft beige bedcover.",
+    "2. Place two slim wooden side tables with small black lamps and one ceramic accent each.",
+    "3. Include a low console in natural wood with a minimal off-white vase.",
+    "4. Add two potted plants in matte ceramic planters for balance.",
+    "5. Position the bed centered on the main wall, aligned with window light."
+  ],
+  "BED_4":[
+    "Using the provided image of this bedroom, Furnish and decorate this bedroom into a cozy, modern, and vibrant living space. Use a palette of muted neutrals with pops of warm orange, teal blue, soft pink, and leafy greens. The design should feel realistic, inviting, playful, and comfortable.Keep everything else in the image exactly the same, preserving the original style, lighting, and composition.",
+    "Furniture & Décor to Add:",
+    "1.Remove the previous bed and  Add a low-profile bed with layered bedding in muted tones (beige/grey base, pink throw, patterned blanket) and multiple textured cushions in mustard yellow, olive green, and blush pink.",
+    "2. Add a compact nightstand with a warm table lamp and small decorative items/books for coziness.",
+    "3. Add a comfy armchair in a deep teal shade with a tan leather throw pillow for a relaxed reading nook.",
+    "4. Add a small wooden shelf unit with books, a potted plant, and warm accent lighting.",
+    "5. add Indoor plants in woven baskets and ceramic pots to add freshness and natural texture.",
+    "6. add String lights draped across the wall for a soft, whimsical glow.",
+    "7. add A mix of colorful, modern wall art prints to create a lively and youthful atmosphere.",
+    "8. If windows are in the room,then add Sheer teal curtains to diffuse natural light softly into the space.",
+    "9. A cozy area rug with subtle stripes and earthy tones to ground the room."
+  ],
+  "BED_5":[
+    "Using the provided image of this bedroom, Furnish and decorate this  bedroom into a cozy, calm, modern bedroom.Use a palette of warm taupe, creamy ivory, muted sage green, and soft dusk blue. the design should feel like warm, intimate, airy, and irresistibly inviting for deep, restorative sleep.",
+    "Furniture & Décor to Add:",
+    "1.a low-profile bed with an oversized, cloud-like upholstered headboard in creamy ivory velvet, layered with ultra-plush duvets, oversized pillows, and textured throws in soft sage and dusk blue.",
+    "3.Position floating walnut bedside tables with small, glowing orb lamps that mimic moonlight.",
+    "4.Place a soft shag rug in muted ivory under the bed to create the feeling of stepping into clouds.",
+    "5.If windows are in the room,then Include light, flowing sheer curtains that filter natural light and give the space an ethereal, weightless quality.",
+    "6. Add subtle décor like a ceramic incense holder, a tiny bonsai, and a minimal abstract artwork in muted tones above the bed."
+  ],
+  "BED_6":[
+    "Using the provided image of this bedroom, Furnish and decorate the empty bedroom into a cozy, stylish bohemian bedroom. Use a palette of warm terracotta, earthy beige, deep rust, olive green, and natural wood tones. The design should be vibrant, eclectic, and inviting.p everything else in the image exactly the same, preserving the original style, lighting, and composition.p everything else in the image exactly the same, preserving the original style, lighting, and composition.",
+    "Furniture & Décor to Add:",
+    "Add a low wooden platform bed positioned at the center of the main wall, styled with layered off-white bedding, a textured throw, and patterned cushions in rust, terracotta, and deep red.",
+    "Place two small woven rattan side tables on either side of the bed, each topped with a ceramic lamp and one small decorative item for symmetry.",
+    "Hang a large macramé wall piece directly above the bed and keep smaller woven décor elements neatly aligned on the same wall.",
+    "Include two medium-sized indoor plants in wicker baskets, one placed in the near-left corner of the room and one by the window for balance.",
+    "Add a large patterned area rug under the bed, ensuring it extends equally on both sides for proportion."
+  ],
+  "TV_1":[
+    "Enhance the room by adding a modern luxury 42inch TV module on the front wall, designed to harmonize with the existing wall color, flooring, and overall room aesthetic. The TV unit should feel elegant, balanced, and contemporary, blending naturally with the space. Add indoor plants that complement the room’s color palette and vibe—choosing suitable plant types, sizes, and planters that enhance freshness, warmth, and sophistication.Integrate warm LED strip lighting wherever it enhances the design.Ensure all the furnitures dont have any weird deformations Ensure the additions look realistic, proportional, and seamlessly integrated with the current décor while keeping the space airy and uncluttered AI has full creative freedom to choose TV module design, plant types, and lighting placement.",
+    "Rules:",
+    "6. Ensure furniture scale fits naturally in the room, with proper alignment to walls.",
+    "7. Keep the original walls, floor, ceiling, windows, doors, lighting, shadows, camera angle, and perspective unchanged."
+  ],
+  "KITCHEN":[
+    "add modular kitchen elements to the existing kitchen make into a sleek modular kitchen that balances functionality with modern luxury. The cabinetry, countertops, and finishes should harmonize with the current wall color, flooring, and natural lighting, while enhancing the overall aesthetic. Use a premium yet practical layout—AI has full freedom to decide on cabinet styles, finishes (matte, glossy, or textured), countertop materials, backsplash design, and storage solutions that best suit the room’s vibe. Add under-cabinet and subtle LED strip lighting in key areas to create depth and warmth. Incorporate built-in appliances (stove, oven, chimney, refrigerator) that blend seamlessly into the design. Add minimal yet elegant kitchen décor elements, such as indoor plants, designer handles, or bar stools if appropriate, while ensuring the space remains uncluttered, ergonomic, and inviting.",
+    "Rules:",
+    "6. Ensure furniture scale fits naturally in the room, with proper alignment to walls.",
+    "7. Keep the original walls, floor, ceiling, windows, doors, lighting, shadows, camera angle, and perspective unchanged."
+  ]
+
+}
