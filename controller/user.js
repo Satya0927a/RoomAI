@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
   }
 })
 async function sendverificationemail(user,token) {
-  const url = `http://localhost:5173/api/user/verify/${token}`
+  const url = `https://roomai-6q5a.onrender.com/api/user/verify/${token}`
 
   await transporter.sendMail({
     from:`"RoomAI" <roomai8769@gmail.com>`,
@@ -26,7 +26,7 @@ async function sendverificationemail(user,token) {
   })
 }
 async function sendpasswordresetemail(user, token) {
-  const url = `http:///localhost:5173/reset-password?token=${token}`
+  const url = `https://roomai-6q5a.onrender.com/reset-password?token=${token}`
 
   await transporter.sendMail({
     from:`"RoomAI" <roomai8769@gmail.com>`,
