@@ -23,8 +23,8 @@ async function sendpassresetemail(user,token){
     const msg = {
         to: user.email,
         from:'roomai8769@gmail.com',
-        text:'email to reset your password',
         subject:"Password Reset",
+        text:'email to reset your password',
         html: `<p>Hey there ${user.username}, We received a request to reset your password. Click the button below to create a new one:</p>
                 <a href="${url}">Click here</a>
             <p>For your security, this link will expire in [15 minutes].</p>

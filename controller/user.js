@@ -12,7 +12,7 @@ const {sendverifyemail,sendpassresetemail} = require('../utils/emailservice')
 // })
 
 //*for login of user
-Userrouter.post('/login',async(request,response)=>{
+Userrouter.post('/login',async(request,response,next)=>{
   try{
     const {email,password} = request.body
     if(!password || !email){
