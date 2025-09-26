@@ -1,6 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const compression = require('compression')
+const path = require("path");
 const imaginerouter = require('./controller/imagine');
 const Userrouter = require('./controller/user');
 const {tokenverify,creditcheck} = require('./utils/middleware');
@@ -30,6 +31,10 @@ app.use('/api/user',Userrouter)
 app.use('/api/imagine',tokenverify,creditcheck,imaginerouter)
 app.use(express.static('./dist'))
 
+//to catch all other endpoints that will be handled by the frontend
+app.get(/.*/,(req,res)=>{
+  res.sendFile(path.join(__dirname,'dist','index.html'))
+})
 
 //middleware to handle error
 const errorhandler = (error,req,res,next)=>{

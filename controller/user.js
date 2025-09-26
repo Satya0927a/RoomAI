@@ -2,83 +2,51 @@ const Userrouter = require('express').Router()
 const User = require('../models/User_model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const nodemailer = require('nodemailer')
 const { tokenverify } = require('../utils/middleware')
-
-const transporter = nodemailer.createTransport({
-  service:"gmail",
-  auth:{
-    user:"roomai8769@gmail.com",
-    pass:process.env.GMAIL_APPPASS
-  }
-})
-async function sendverificationemail(user,token) {
-  const url = `https://roomai-6q5a.onrender.com/api/user/verify/${token}`
-
-  await transporter.sendMail({
-    from:`"RoomAI" <roomai8769@gmail.com>`,
-    to: user.email,
-    subject:"Verify your email",
-    html: `<p>Hey there ${user.username},</p>
-           <p>Please verify your email by clicking below:</p>
-           <a href="${url}">Verify Email</a>
-           <p>Thank you for using our services</p>`
-  })
-}
-async function sendpasswordresetemail(user, token) {
-  const url = `https://roomai-6q5a.onrender.com/reset-password?token=${token}`
-
-  await transporter.sendMail({
-    from:`"RoomAI" <roomai8769@gmail.com>`,
-    to: user.email,
-    subject:"Password Reset",
-    html: `<p>Hey there ${user.username}, We received a request to reset your password. Click the button below to create a new one:</p>
-            <a href="${url}">Click here</a>
-           <p>For your security, this link will expire in [15 minutes].</p>
-           <p>If you didn’t request a password reset, you can safely ignore this email.</p>
-           <p>Thank you for using our services.</p>`
-  })
-}
-
-
-
+const {sendverifyemail,sendpassresetemail} = require('../utils/emailservice')
 
 //?dev feature
-Userrouter.get('/all',async(request,response)=>{
-  const users = await User.find({})
-  response.send(users)
-})
+// Userrouter.get('/all',async(request,response)=>{
+//   const users = await User.find({})
+//   response.send(users)
+// })
 
 //*for login of user
 Userrouter.post('/login',async(request,response)=>{
-  const {email,password} = request.body
-  if(!password || !email){
-    return response.status(400).json({status:"fail",message:"Invalid Inputs"})
+  try{
+    const {email,password} = request.body
+    if(!password || !email){
+      return response.status(400).json({status:"fail",message:"Invalid Inputs"})
+    }
+    const user = await User.findOne({email:email})
+    if(!user){
+      return response.status(404).json({status:"fail",message:"Email or password is incorrect"})
+    }
+    const passwordverify =  await bcrypt.compare(password,user.passwordhash)
+    if(!passwordverify){
+      return response.status(401).json({ status: "fail", message: "Email or password is incorrect" })
+    }
+    //?checks if the users email is verified if not then send a veriification email to its account
+    if(!user.Emailverified){
+      const emailtoken = jwt.sign({userid:user._id},process.env.EMAIL_SECRET,{expiresIn:"15m"})
+      await sendverifyemail(user,emailtoken)
+      return response.status(200).json({status:"success",message:"A verification link sent to email your email address expires in 15min",command:"SHOW_VERIFYPANEL"})
+      
+    }
+    //?if the email is verified generates the imagine api authentication token
+    const payload = {
+      sub:user._id
+    }
+    const token = jwt.sign(payload,process.env.SECRET)
+    return response.status(200).json({ status: "success",message:"Successfully logged in", token, user: {username: user.username ,credits:user.credits} })
   }
-  const user = await User.findOne({email:email})
-  if(!user){
-    return response.status(404).json({status:"fail",message:"Email or password is incorrect"})
+  catch(err){
+    next(err)
   }
-  const passwordverify =  await bcrypt.compare(password,user.passwordhash)
-  if(!passwordverify){
-    return response.status(401).json({ status: "fail", message: "Email or password is incorrect" })
-  }
-  //?checks if the users email is verified if not then send a veriification email to its account
-  if(!user.Emailverified){
-    const emailtoken = jwt.sign({userid:user._id},process.env.EMAIL_SECRET,{expiresIn:"15m"})
-    await sendverificationemail(user,emailtoken)
-    return response.status(200).json({status:"success",message:"A verification link sent to email your email address expires in 15min",command:"SHOW_VERIFYPANEL"})
-    
-  }
-  //?if the email is verified generates the imagine api authentication token
-  const payload = {
-    sub:user._id
-  }
-  const token = jwt.sign(payload,process.env.SECRET)
-  return response.status(200).json({ status: "success",message:"Successfully logged in", token, user: {username: user.username ,credits:user.credits} })
 })
-//* for creating new user
+  //* for creating new user
 Userrouter.post('/create',async(request,response,next)=>{
+  try{
   const {email,username,password} = request.body
   if(!email || !username || !password){
     return response.status(400).json({status:"fail",message:"Invalid inputs"})
@@ -86,7 +54,6 @@ Userrouter.post('/create',async(request,response,next)=>{
   if(password.length < 8){
     return response.status(400).json({status:"fail",message:"Password must be minimum 8 charecters long"})
   }
-  try{
     const pass_hash = await bcrypt.hash(password,10)
     const newuser = new User({
       email:email,
@@ -98,7 +65,8 @@ Userrouter.post('/create',async(request,response,next)=>{
     const user = await newuser.save()
     //?sends verification email to the users account
     const emailtoken = jwt.sign({userid:user._id},process.env.EMAIL_SECRET,{expiresIn:"15m"})
-    await sendverificationemail(user,emailtoken)
+    // await sendverificationemail(user,emailtoken)
+    await sendverifyemail(user,emailtoken)
     return response.status(201).json({status:"success",message:"A verification link sent to email your email address expires in 15min",command:"SHOW_VERIFYPANEL"})
     
   }
@@ -130,17 +98,17 @@ Userrouter.get('/verify/:token',async(request,response,next)=>{
 
 //*for reseting passwords creates the resettoken and sends the email
 Userrouter.post('/passwordreset',async(request,response,next)=>{
-  const {email} = request.body
-  if(!email){
-    return response.status(400).json({status:"fail",message:"Invalid email or email missing"})
-  }
-  const user = await User.findOne({email:email})
-  if(!user){
-    return response.status(404).json({status:"fail",message:"user not found"})
-  }
   try{
+    const {email} = request.body
+    if(!email){
+      return response.status(400).json({status:"fail",message:"Invalid email or email missing"})
+    }
+    const user = await User.findOne({email:email})
+    if(!user){
+      return response.status(404).json({status:"fail",message:"user not found"})
+    }
     const resettoken = jwt.sign({userid:user._id},process.env.PASS_RESET_SECRET,{expiresIn:"15m"})
-    await sendpasswordresetemail(user,resettoken)
+    await sendpassresetemail(user,resettoken)
     response.status(200).json({status:"success",message:"sent a password resetting link to your email address",command:"SHOW_VERIFYPANEL"})
   }
   catch(error){
