@@ -40,6 +40,8 @@ imaginerouter.post('/',async(req,res,next)=>{
     const finalimgbuffer = await Generator(imagebuffer,prompt)
     await creditcharge(req,1)
     // fs.writeFileSync('./output.png',finalimgbuffer)
+    res.setHeader("Content-Type", "image/jpeg");
+    res.setHeader("Content-Length", finalimgbuffer.length);
     res.status(200).send(`data:image/jpeg;base64,${finalimgbuffer.toString("base64")}`)
   }
   catch(error){

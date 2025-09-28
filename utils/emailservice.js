@@ -33,5 +33,4 @@ async function sendpassresetemail(user,token){
     }
     await sgMail.send(msg)
 }
-
 module.exports = {sendverifyemail,sendpassresetemail}
